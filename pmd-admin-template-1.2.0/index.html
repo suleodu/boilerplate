@@ -1318,7 +1318,7 @@
                 title: {
                     style: {
                         fontWeight: "normal"
-            }
+                    }
                 }
             },
             tooltip: {
@@ -1336,8 +1336,8 @@
                         color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
                         style: {
                             textShadow: '0 0 3px black'
-            }
-            }
+                        }
+                    }
                 }
             },
             credits: {
@@ -1346,12 +1346,12 @@
             series: [{
                     name: 'Card',
                     data: [25000, 50000, 75000, 75000, 60000, 70000, 10000, 2500, 5000, 25000]
-            }, {
+                }, {
                     name: 'Wallet',
                     data: [75000, 50000, 25000, 25000, 30000, 30000, 90000, 25000, 3000, 50000]
-            }]
+                }]
 
-            });
+        });
     });
 </script>
 
@@ -1372,33 +1372,33 @@
             },
             xAxis: [{
                     categories: ['3-7', '4-7', '5-7', '6-7', '7-7', '8-7', '9-7']
-            }],
+                }],
             yAxis: [{// Primary yAxis
                     labels: {
                         style: {
                             color: Highcharts.getOptions().colors[1]
-            }
+                        }
                     },
                     title: {
                         text: 'User Count',
                         style: {
                             color: Highcharts.getOptions().colors[1]
-            }
+                        }
                     }
-            }, {// Secondary yAxis
+                }, {// Secondary yAxis
                     title: {
                         text: 'Total Days',
                         style: {
                             color: Highcharts.getOptions().colors[0]
-            }
+                        }
                     },
                     labels: {
                         style: {
                             color: Highcharts.getOptions().colors[0]
-            }
+                        }
                     },
                     opposite: true
-            }],
+                }],
             legend: {
                 enabled: !0,
                 align: "right",
@@ -1438,7 +1438,7 @@
                 title: {
                     style: {
                         fontWeight: "normal"
-            }
+                    }
                 }
             },
 
@@ -1460,7 +1460,7 @@
                     tooltip: {
                         pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: '
                     }
-            }, {
+                }, {
                     name: 'Total Days error',
                     type: 'errorbar',
                     yAxis: 1,
@@ -1468,14 +1468,14 @@
                     tooltip: {
                         pointFormat: '(error range: {point.low}-{point.high})<br/>'
                     }
-            }, {
+                }, {
                     name: 'User Count',
                     type: 'column',
                     data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2],
                     tooltip: {
                         pointFormat: '<span style="font-weight: bold; color: {series.color}">{series.name}</span>: <b>{point.y:.1f}</b> '
                     }
-            }, {
+                }, {
                     name: 'User Count error',
                     type: 'errorbar',
                     data: [[6, 8], [5.9, 7.6], [9.4, 10.4], [14.1, 15.9], [18.0, 20.1], [21.0, 24.0], [23.2, 25.3]],
