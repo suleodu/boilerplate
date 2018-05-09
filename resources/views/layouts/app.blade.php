@@ -419,13 +419,13 @@
     <div class="container-fluid full-width-container about">
         <!-- Title -->
         <h1 class="section-title" id="services">
-            <span>Profile</span>
+            <span>{{(isset($page_title))? $page_title : ''}}</span>
         </h1><!-- End Title -->
 
         <!--breadcrum start-->
         <ol class="breadcrumb text-left">
-            <li><a href="index.html">Dashboard</a></li>
-            <li class="active">Profile</li>
+            <li><a href="{{route('home')}}">Dashboard</a></li>
+            <li class="active">{{ (isset($page_title))? $page_title : ''}}</li>
         </ol><!--breadcrum end-->
         
         <!--Your content here--> 
