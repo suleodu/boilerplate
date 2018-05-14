@@ -42,10 +42,11 @@ class UsersController extends Controller
     {
         $this->data['page_title'] = "Profile";
         $user = Auth::user();
-        //dd($user->role);
+        //dd($user->roles);
         //dd(Auth::user()->allPermissions()[1]->name);
         
         $this->data['permissions']= $user->allPermissions();
+        $this->data['roles']= $user->roles;
         $this->data['user'] = User::whereId($user->id)->first();
         return view('core.profile ', $this->data);
     }

@@ -143,8 +143,8 @@
                             <h2 class="pmd-card-title-text">Permissions</h2>
                             <span class="pmd-card-subtitle-text">List of Permissions you have </span>	
                         </div>
-                        <div class="pmd-card-body">
-                            <table class="table .table-sm">
+                        <div class="pmd-card-body small">
+                            <table class="table table-sm header-fixed table-bordered table-condensed" style="height:2px; overflow-y:scroll;">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -158,6 +158,7 @@
                                         <td>{{$perm->display_name}}</td>
                                     </tr>
                                     @endforeach
+                                    
                                 </tboday>
                             </table>
                         </div>
@@ -177,7 +178,23 @@
                             <span class="pmd-card-subtitle-text">List of Roles you have</span>	
                         </div>
                         <div class="pmd-card-body">
-                            Cards provide context and an entry point to more robust information and views. Don't overload cards with extraneous information or actions.
+                            <table class="table table-sm header-fixed table-bordered table-condensed" style="height:2px; overflow-y:scroll;">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Permissions</th>
+                                    </tr>
+                                </thead>
+                                <tboday>
+                                    @foreach($roles as $key => $role )
+                                    <tr>  
+                                        <th>{{++$key}}</th>
+                                        <td>{{$role->display_name}}</td>
+                                    </tr>
+                                    @endforeach
+                                    
+                                </tboday>
+                            </table>
                         </div>
                         <div class="pmd-card-actions">
                             <button type="button" class="btn pmd-btn-flat pmd-ripple-effect btn-primary">Primary</button>
@@ -196,7 +213,23 @@
                             <span class="pmd-card-subtitle-text">List of team you belong to</span>	
                         </div>
                         <div class="pmd-card-body">
-                            Cards provide context and an entry point to more robust information and views. Don't overload cards with extraneous information or actions.
+                            <table class="table table-sm header-fixed table-bordered table-condensed" style="height:2px; overflow-y:scroll;">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Permissions</th>
+                                    </tr>
+                                </thead>
+                                <tboday>
+                                    @foreach($permissions as $key => $perm )
+                                    <tr>  
+                                        <th>{{++$key}}</th>
+                                        <td>{{$perm->display_name}}</td>
+                                    </tr>
+                                    @endforeach
+                                    
+                                </tboday>
+                            </table>
                         </div>
                         <div class="pmd-card-actions">
                             <button type="button" class="btn pmd-btn-flat pmd-ripple-effect btn-primary">Primary</button>
