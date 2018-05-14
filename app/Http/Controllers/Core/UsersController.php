@@ -42,7 +42,7 @@ class UsersController extends Controller
     {
         $this->data['page_title'] = "Profile";
         $user = Auth::user();
-        dd($user->role);
+        //dd($user->role);
         //dd(Auth::user()->allPermissions()[1]->name);
         
         $this->data['permissions']= $user->allPermissions();

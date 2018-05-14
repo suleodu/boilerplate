@@ -81,9 +81,52 @@
                             <span class="pmd-card-subtitle-text">Next of kin information</span>	
                         </div>
                         <div class="pmd-card-body">
-                            Cards provide context and an entry point to more 
-                            robust information and views. Don't overload cards with extraneous information or actions.
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group pmd-textfield">
+                                        <label class="col-md-4 control-label" for="">Full Name </label>
+                                        <div class="col-md-8">
+                                            <p class="form-control-static"><strong>{{$user->next_of_kin_name }}</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group pmd-textfield">
+                                        <label class="col-md-4 control-label" for="email">E-mail </label>
+                                        <div class="col-md-8">
+                                            <p class="form-control-static"><strong>{{$user->next_of_kin_email}}</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group pmd-textfield">
+                                        <label class="col-md-4 control-label" for="email">Phone </label>
+                                        <div class="col-md-8">
+                                            <p class="form-control-static"><strong>{{$user->next_of_kin_phone}}</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group pmd-textfield">
+                                        <label class="col-md-4 control-label" for="email">Address </label>
+                                        <div class="col-md-8">
+                                            <p class="form-control-static"><strong>{{$user->next_of_kin_address}}</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
+                    </div>
+                </div>
+            </div>
+             <p>&nbsp;</p>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pmd-card pmd-card-default pmd-z-depth">
+                        
                         <div class="pmd-card-actions">
                             <button type="button" class="btn pmd-btn-flat pmd-ripple-effect btn-primary">Primary</button>
                             <button class="btn pmd-btn-flat pmd-ripple-effect btn-default" type="button">Action</button>
@@ -101,7 +144,22 @@
                             <span class="pmd-card-subtitle-text">List of Permissions you have </span>	
                         </div>
                         <div class="pmd-card-body">
-                            Cards provide context and an entry point to more robust information and views. Don't overload cards with extraneous information or actions.
+                            <table class="table .table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Permissions</th>
+                                    </tr>
+                                </thead>
+                                <tboday>
+                                    @foreach($permissions as $key => $perm )
+                                    <tr>  
+                                        <th>{{++$key}}</th>
+                                        <td>{{$perm->display_name}}</td>
+                                    </tr>
+                                    @endforeach
+                                </tboday>
+                            </table>
                         </div>
                         <div class="pmd-card-actions">
                             <button type="button" class="btn pmd-btn-flat pmd-ripple-effect btn-primary">Primary</button>

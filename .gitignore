@@ -3,6 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/pmd-admin-template-1.2.0
 /.idea
 /.vscode
 /.vagrant
