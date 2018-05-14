@@ -6,6 +6,60 @@
 
     <div class="container-fluid">
         <div class="pmd-navbar-right-icon pull-right navigation">
+            @auth
+            <!-- Notifications -->
+            <div class="dropdown notification icons pmd-dropdown">
+
+                <a href="javascript:void(0)" title="Notification" class="dropdown-toggle pmd-ripple-effect"  data-toggle="dropdown" role="button" aria-expanded="true">
+                    <div data-badge="*" class="material-icons md-light pmd-sm pmd-badge  pmd-badge-overlap">perm_identity</div>
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right pmd-card pmd-card-default pmd-z-depth" role="menu">
+                    
+                    <!-- Notifications list -->
+                    <ul class="list-group pmd-card-list">
+                        
+                        <li class="list-group-item ">
+                            <a href="{{route('user-profile')}}">
+                                <div class=" media-middle">
+                                    <div class="avatar-list-img40x40">
+                                        <img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="themes/images/profile-1.png" data-holder-rendered="true">
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    <span class="list-group-item-heading"><span>{{ Auth::user()->lname }} </span> {{ Auth::user()->fname }}</span>
+                                    <span class="list-group-item-text"></span>{{ Auth::user()->email }}
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">
+                                Setting
+                            </a>
+                        </li>
+                        <li class="list-group-item ">
+                            <a href="#">
+                                change password
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul><!-- End notifications list -->
+                </div>
+            </div> 
+            <!-- End notifications -->
+            @endauth
+            <!-- End notifications -->
+        </div>
+        <div class="pmd-navbar-right-icon pull-right navigation">
             <!-- Notifications -->
             <div class="dropdown notification icons pmd-dropdown">
 
@@ -88,8 +142,10 @@
                 </div>
 
 
-            </div> <!-- End notifications -->
+            </div> 
+            <!-- End notifications -->
         </div>
+        
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <a href="javascript:void(0);" data-target="basicSidebar" data-placement="left" data-position="slidepush" is-open="true" is-open-width="1200" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pull-left margin-r8 pmd-sidebar-toggle"><i class="material-icons md-light">menu</i></a>	

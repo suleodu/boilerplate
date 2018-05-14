@@ -25,6 +25,7 @@
 
         <!-- Propeller admin theme css-->
         <link rel="stylesheet" type="text/css" href="{{ asset('themes/css/propeller-admin.css') }}">
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
         @stack('style')
     </head>
 
@@ -35,7 +36,47 @@
         <script src="{{ asset('assets/js/jquery-1.12.2.min.js') }}"></script>
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/js/propeller.min.js') }}"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         
+        <script>
+            //toastr.options.closeButton = true;
+//            toastr.options.showEasing = 'easeOutBounce';
+//            toastr.options.hideEasing = 'easeInBack';
+//            toastr.options.closeEasing = 'easeInBack';
+//            toastr.options.showMethod = 'slideDown';
+//            toastr.options.hideMethod = 'slideUp';
+//            toastr.options.closeMethod = 'slideUp';
+            
+            
+            
+            @if(Session::has('message'))
+                var type = "{{ Session::get('alert-type', 'info') }}";
+                switch(type){
+                    case 'info':
+                        toastr.info("{{ Session::get('message') }}");
+                        break;
+
+                    case 'warning':
+                        toastr.warning("{{ Session::get('message') }}");
+                        break;
+
+                    case 'success':
+                        toastr.success("{{ Session::get('message') }}");
+                        break;
+
+                    case 'error':
+                        toastr.error("{{ Session::get('message') }}");
+                        break;
+              }
+            @endif
+            
+            @if(Session::has('error'))
+                dd($errors)
+                @foreach($errors as $error)
+                    toastr.error("{{$error}}");
+                @endforeach
+            @endif
+        </script>
         <!-- Scripts Ends -->
         @stack('script')
     </body>

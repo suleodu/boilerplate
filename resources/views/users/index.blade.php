@@ -61,8 +61,8 @@
 
         </div> <!--Accordion with Icons code and example  end-->
     </div>
-    <div class="col-md-2">
-        <button type="button" class="btn btn-primary"> Add New User </button>
+    <div class="col-md-2" style="margin-top: 20px">
+        <button type="button" class="btn btn-primary" > Add New User </button>
     </div>
     <div class="col-md-12">
         <div class="component-box">
@@ -79,18 +79,18 @@
                                 <th>Sex</th>
                                 <th>DoB</th>
                                 <th>Status</th>
-                                <th></th>
+                                <th><button type="button" class="btn btn-primary" > Add New User </button></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Giacomo Guilizzoni</td>
-                                <td>JONEA140</td>
-                                <td>Melbourne</td>
-                                <td>1 June 2014</td>
-                                <td>Active</td>
-                                <td>Timesheet</td>
+                                <td>Adedayo Sule-Odu</td>
+                                <td>suleodu.adedayo@gmail.com</td>
+                                <td>+2348074000367</td>
+                                <td>Male</td>
+                                <td>1st Aprill 2018</td>
+                                <td><span class="badge badge-success">Active</span></td>
                                 <td>
                                     <span class="dropdown pmd-dropdown clearfix">
                                         <button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary" type="button" id="dropdownMenuBottomRight" data-toggle="dropdown" aria-expanded="false"><i class="material-icons pmd-sm">more_vert</i></button>

@@ -11,32 +11,33 @@
             <h3>Sign In <span>with <strong>{{ __('Login') }}</strong></span></h3>
         </div>
         <div class="pmd-card-body">
-            @if ($errors->has('email'))
-            <div class="alert alert-warning" role="alert"> {{ $errors->first('email') }} </div>
-            @endif
-            <div class="form-group pmd-textfield pmd-textfield-floating-label">
-                <label for="inputError1" class="control-label pmd-input-group-label">{{ __('E-Mail Address') }}</label>
+            <div class="form-group pmd-textfield pmd-textfield-floating-label {{ $errors->has('email') ? 'has-error' : '' }}">
+                <label for="email" class="control-label pmd-input-group-label">{{ __('E-Mail Address') }}</label>
                 <div class="input-group">
                     <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">perm_identity</i></div>
-                    <input type="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" id="exampleInputAmount">
+                    <input type="email" name="email" class="form-control" id="email">
                 </div>
+                @if ($errors->has('email'))
+                <p class="help-block" > {{ $errors->first('email') }} </p>
+                @endif
             </div>
-            @if ($errors->has('password'))
-                <div class="alert alert-success" role="alert"> {{ $errors->first('password') }} </div>
-            @endif
-            <div class="form-group pmd-textfield pmd-textfield-floating-label">
-                <label for="inputError1" class="control-label pmd-input-group-label">{{ __('Password') }}</label>
+            
+            <div class="form-group pmd-textfield pmd-textfield-floating-label {{ $errors->has('password') ? 'has-error' : '' }}">
+                <label for="password" class="control-label pmd-input-group-label">{{ __('Password') }}</label>
                 <div class="input-group">
                     <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">lock_outline</i></div>
-                    <input type="password" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" id="exampleInputAmount">
+                    <input type="password" name="password" class="form-control" id="password">
                 </div>
+                @if ($errors->has('password'))
+                <div class="help-block"> {{ $errors->first('password') }} </div>
+                @endif
             </div>
         </div>
         <div class="pmd-card-footer card-footer-no-border card-footer-p16 text-center">
             <div class="form-group clearfix">
                 <div class="checkbox pull-left">
                     <label class="pmd-checkbox checkbox-pmd-ripple-effect">
-                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} >
                         <span class="pmd-checkbox"> {{ __('Remember Me') }}</span>
                     </label>
                 </div>
