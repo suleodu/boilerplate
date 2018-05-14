@@ -41,9 +41,12 @@ class UsersController extends Controller
     public function profile()
     {
         $this->data['page_title'] = "Profile";
-        $userid = Auth::user()->id;
+        $user = Auth::user();
+        dd($user->role);
+        //dd(Auth::user()->allPermissions()[1]->name);
         
-        $this->data['user'] = User::whereId($userid)->first();
+        $this->data['permissions']= $user->allPermissions();
+        $this->data['user'] = User::whereId($user->id)->first();
         return view('core.profile ', $this->data);
     }
 }
