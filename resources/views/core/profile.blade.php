@@ -2,6 +2,7 @@
 
 @section('app_content')
 
+
 <div class="page-content">
     <div class="row">
         <div class="col-lg-8">
@@ -17,7 +18,7 @@
 
                                 <div data-provides="fileinput" class="fileinput fileinput-new col-lg-3">
                                     <div data-trigger="fileinput" class="fileinput-preview thumbnail img-circle img-responsive">
-                                        <img src="themes/images/avtar-b.jpg">
+                                        <img src="{{($user->image_url) ? asset('assets/images/users/'.$user->image_url) : asset('themes/images/avtar-b.jpg')}}">
                                     </div>
                                 </div>
                                 
@@ -149,6 +150,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Permissions</th>
+                                        <th>&nbsp</th>
                                     </tr>
                                 </thead>
                                 <tboday>
@@ -156,8 +158,19 @@
                                     <tr>  
                                         <th>{{++$key}}</th>
                                         <td>{{$perm->display_name}}</td>
+                                        <td>
+                                            <span class="dropdown pmd-dropdown clearfix">
+                                                <button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary" type="button" id="dropdownMenuBottomRight" data-toggle="dropdown" aria-expanded="true"><i class="material-icons pmd-sm">more_vert</i></button>
+                                                <ul aria-labelledby="dropdownMenuDivider" role="menu" class="dropdown-menu dropdown-menu-right">
+                                                    <li role="presentation"><a href="javascript:void(0);" ng-click="setCurrent(perm)" tabindex="-1" role="menuitem">View details</a></li>
+                                                    <li class="divider" role="presentation"></li>
+                                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">Separated link</a></li>
+                                                </ul>
+                                            </span>
+                                        </td>
                                     </tr>
                                     @endforeach
+                                    
                                     
                                 </tboday>
                             </table>
@@ -204,7 +217,7 @@
                 </div>
             </div>
 
-            <p>&nbsp;</p>
+<!--            <p>&nbsp;</p>
             <div class="row">
                 <div class="col-md-12">
                     <div class="pmd-card pmd-card-default pmd-z-depth">
@@ -237,7 +250,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>

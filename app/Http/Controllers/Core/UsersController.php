@@ -38,16 +38,56 @@ class UsersController extends Controller
         return view('users.index', $data);
     }
     
+    
+    
     public function profile()
     {
+        
         $this->data['page_title'] = "Profile";
         $user = Auth::user();
-        //dd($user->roles);
-        //dd(Auth::user()->allPermissions()[1]->name);
-        
         $this->data['permissions']= $user->allPermissions();
         $this->data['roles']= $user->roles;
+        //$this->data['teams']= $user->teams;
         $this->data['user'] = User::whereId($user->id)->first();
         return view('core.profile ', $this->data);
     }
+    
+    
+    
+    public function profile_settings(){
+        
+        $user = Auth::user();
+        
+        if(Auth::user()->can('core.self.profile.edit')){
+            $this->data['page_title'] = "Profile Settings";
+            $this->data['user'] = $user;
+            $this->data['permissions']= $user->allPermissions();
+            $this->data['roles']= $user->roles;
+            
+            return view('core.profile_setting ', $this->data);
+        }
+        
+        $notification = array(
+            'message' => 'Sorry you do not have permission to perform this operation !', 
+            'alert-type' => 'warning'
+        );
+
+        return Redirect::to('/home')->with($notification);
+    }
+    
+    
+    public function update_next_of_kin(Request $request){
+        //TODO: update next on kin info 
+        //redirect back to profile setting showing notification of 
+        //update successfull
+    }
+    
+    public function update_profile(Request $request){
+        //TODO: update profile info 
+        //redirect back to profile setting showing notification of 
+        //update successfull
+    }
+    
+    
+    
 }

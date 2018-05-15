@@ -33,7 +33,7 @@
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="#">
+                            <a href="{{route('profile-setting')}}">
                                 Setting
                             </a>
                         </li>

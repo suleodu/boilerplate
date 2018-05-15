@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}" ng-app="App">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,16 +26,51 @@
         <!-- Propeller admin theme css-->
         <link rel="stylesheet" type="text/css" href="{{ asset('themes/css/propeller-admin.css') }}">
         <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        
+        <!-- Select2 css-->
+        <link rel="stylesheet" type="text/css" href="{{asset('components/select2/css/select2.min.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{asset('components/select2/css/select2-bootstrap.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{asset('components/select2/css/pmd-select2.css')}}" />
         @stack('style')
     </head>
 
-    <body >
+    <body ng-controller="PageController" >
         @yield('content')
 
         <!-- Scripts Starts -->
         <script src="{{ asset('assets/js/jquery-1.12.2.min.js') }}"></script>
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/js/propeller.min.js') }}"></script>
+        
+        <!-- Select2 js-->
+        <script type="text/javascript" src="{{ asset('components/select2/js/select2.full.js') }}"></script>
+
+        <!-- Propeller Select2 -->
+        <script type="text/javascript">
+                $(document).ready(function() {
+                        <!-- Simple Selectbox -->
+                        $(".select-simple").select2({
+                                theme: "bootstrap",
+                                minimumResultsForSearch: Infinity,
+                        });
+                        <!-- Selectbox with search -->
+                        $(".select-with-search").select2({
+                                theme: "bootstrap"
+                        });
+                        <!-- Select Multiple Tags -->
+                        $(".select-tags").select2({
+                                tags: false,
+                                theme: "bootstrap",
+                        });
+                        <!-- Select & Add Multiple Tags -->
+                        $(".select-add-tags").select2({
+                                tags: true,
+                                theme: "bootstrap",
+                        });
+                });
+        </script>
+        <script type="text/javascript" src="{{ asset('components/select2/js/pmd-select2.js') }}"></script>
+                
         <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         
         <script>
