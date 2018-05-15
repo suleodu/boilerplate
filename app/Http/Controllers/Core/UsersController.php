@@ -35,7 +35,7 @@ class UsersController extends Controller
     public function users()
     {
         $data['page_title'] = "User Management";
-        return view('users.index', $data);
+        return view('core.users.index', $data);
     }
     
     

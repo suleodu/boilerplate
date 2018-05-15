@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/users', 'Core\UsersController@index')->name('user-management');
+Route::get('/users', 'Core\UsersController@users')->name('user-management');
 Route::get('/profile', 'Core\UsersController@profile')->name('user-profile');
 Route::get('/profile/settings', 'Core\UsersController@profile_settings')->name('profile-setting');
 Route::post('/profile/update_next_of_kin', 'Core\UsersController@update_next_of_kin')->name('update_next_of_kin');
