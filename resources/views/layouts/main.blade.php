@@ -73,17 +73,7 @@
                 
         <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         
-        <script>
-            //toastr.options.closeButton = true;
-//            toastr.options.showEasing = 'easeOutBounce';
-//            toastr.options.hideEasing = 'easeInBack';
-//            toastr.options.closeEasing = 'easeInBack';
-//            toastr.options.showMethod = 'slideDown';
-//            toastr.options.hideMethod = 'slideUp';
-//            toastr.options.closeMethod = 'slideUp';
-            
-            
-            
+        <script>     
             @if(Session::has('message'))
                 var type = "{{ Session::get('alert-type', 'info') }}";
                 switch(type){
@@ -105,9 +95,8 @@
               }
             @endif
             
-            @if(Session::has('error'))
-                dd($errors)
-                @foreach($errors as $error)
+            @if ($errors->any())
+                @foreach($errors->all() as $error)
                     toastr.error("{{$error}}");
                 @endforeach
             @endif

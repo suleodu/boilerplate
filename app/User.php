@@ -29,4 +29,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    protected  $date = [
+        'created_at', 'updated_at', 'dob'
+                ];
 }
