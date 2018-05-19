@@ -54,7 +54,7 @@ class UsersController extends Controller
     
     
     
-    public function profile_settings(){
+    public function profile_settings($id){
         
         $user = Auth::user();
         

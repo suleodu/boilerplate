@@ -23,7 +23,7 @@
                             <a href="{{route('user-profile')}}">
                                 <div class=" media-middle">
                                     <div class="avatar-list-img40x40">
-                                        <img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="themes/images/profile-1.png" data-holder-rendered="true">
+                                        <img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="{{(Auth::user()->image_url) ? asset('assets/images/users/'.Auth::user()->image_url) : asset('themes/images/avtar-b.jpg')}} "  data-holder-rendered="true">
                                     </div>
                                 </div>
                                 <div class="media-body">
@@ -38,7 +38,7 @@
                             </a>
                         </li>
                         <li class="list-group-item ">
-                            <a href="#">
+                            <a href="javascript:void(0);" data-target="#reset-password" data-toggle="modal">
                                 change password
                             </a>
                         </li>
@@ -56,6 +56,7 @@
                 </div>
             </div> 
             <!-- End notifications -->
+            
             @endauth
             <!-- End notifications -->
         </div>
@@ -491,14 +492,58 @@
 
 </div><!-- content area end -->
 
-
+<div tabindex="-1"  class="modal fade" id="reset-password" style="display: none;" aria-hidden="true" >
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <div class="media-body media-middle">
+                    <h3 class="pmd-card-title-text">Password Reset</h3>
+                    <span class="pmd-card-subtitle-text">Password res</span> 
+                </div>
+            </div>
+            <form action="{{route('update-password')}}" method="post" >
+                @csrf
+                <div class="modal-body">
+                    
+                    <!-- Password Input -->
+                    <div class="form-group pmd-textfield">
+                        <label for="cur_password" class="control-label">Current Password</label>
+                        <input id="password1" class="form-control" type="password" name="cur_password"><span class="pmd-textfield-focused"></span>
+                    </div>
+                    <!-- Password Input -->
+                    <div class="form-group pmd-textfield">
+                        <label for="password" class="control-label">New Password</label>
+                        <input id="password1" class="form-control" type="password" name="password"><span class="pmd-textfield-focused"></span>
+                    </div>
+                    @if ($errors->has('password'))
+                    <p class="help-block"> {{ $errors->first('password') }} </p>
+                    @endif
+                    <!-- Password Input -->
+                    <div class="form-group pmd-textfield">
+                        <label for="confirm_new_password" class="control-label">Confirm New Password</label>
+                        <input id="password1" class="form-control" type="password" name="password_confirmation"><span class="pmd-textfield-focused"></span>
+                    </div>
+                    @if ($errors->has('password_confirmation'))
+                    <p class="help-block"> {{ $errors->first('password_confirmation') }} </p>
+                    @endif
+                    
+                </div>
+                <div class="pmd-modal-action">
+                    <button  type="submit" class="btn btn-sm  pmd-ripple-effect btn-primary">Update</button>
+                    <button data-dismiss="modal"  type="button" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary"> close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <!-- Footer Starts -->
 <footer class="admin-footer">
     <div class="container-fluid">
         <ul class="list-unstyled list-inline">
             <li>
-                <span class="pmd-card-subtitle-text">Propeller &copy; <span class="auto-update-year"></span>. All Rights Reserved.</span>
+                <span class="pmd-card-subtitle-text">Sule-odu Boilerplate&copy; <span class="auto-update-year"></span>. All Rights Reserved.</span>
                 <h3 class="pmd-card-subtitle-text">Licensed under <a href="https://opensource.org/licenses/MIT" target="_blank">MIT license.</a></h3>
             </li>
 
@@ -523,7 +568,7 @@
                     </div>
                     <div>
                         <span class="pmd-card-subtitle-text">For Support</span>
-                        <h3 class="pmd-card-title-text">support@propeller.in</h3>
+                        <h3 class="pmd-card-title-text">suleodu.adedayo@gmail.com</h3>
                     </div>
                 </a>
             </li>

@@ -18,8 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/users', 'Core\UsersController@users')->name('user-management');
-Route::get('/profile', 'Core\UsersController@profile')->name('user-profile');
-Route::get('/profile/settings', 'Core\UsersController@profile_settings')->name('profile-setting');
-Route::post('/profile/update_next_of_kin', 'Core\UsersController@update_next_of_kin')->name('update_next_of_kin');
-Route::post('/profile/update_profile', 'Core\UsersController@update_profile')->name('update_profile');
+
+//Authenticated user 
+Route::get('/profile', 'Core\AuthUserController@index')->name('user-profile');
+Route::get('/settings', 'Core\AuthUserController@edit')->name('profile-setting');
+
+Route::post('/update_next_of_kin', 'Core\AuthUserController@update_next_of_kin')->name('update-next-of-kin');
+Route::post('/update_profile', 'Core\AuthUserController@update_profile')->name('update-profile');
+Route::post('/upload_image', 'Core\AuthUserController@upload_image')->name('upload-image');
+Route::post('/update_password', 'Core\AuthUserController@update_password')->name('update-password');
+
