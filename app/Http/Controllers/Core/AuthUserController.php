@@ -115,10 +115,9 @@ class AuthUserController extends Controller
             if($request->method() == 'POST'){
                 
                 $request->validate([
-                    'lname' => 'required|max:255',
+                    
                     'email' => 'required|email|max:255',
-                    'mname' => 'required',
-                    'fname' => 'required',
+                    'mname' => 'required|max:255',
                     'phone' => 'required|max:15',
                     'sex' => 'required',
                     'dob' => 'required',
@@ -126,10 +125,9 @@ class AuthUserController extends Controller
                 ]);
                 
                 $req = array(
-                    'lname' => $request->lname,
+                    
                     'email' => $request->email,
                     'mname' => $request->mname,
-                    'fname' => $request->fname,
                     'phone' => $request->phone,
                     'sex' => $request->sex,
                     'dob' => \Carbon\Carbon::parse($request->dob)->format('Y/m/d'),
