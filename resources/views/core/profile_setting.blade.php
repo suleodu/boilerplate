@@ -35,13 +35,13 @@
                                                         <div class="form-group prousername pmd-textfield">
                                                             <label class="control-label col-sm-3"> Surname </label>
                                                             <div class="col-sm-9">
-                                                                <input type="text" name="lname" class="form-control empty" id="lname" value="{{$user->lname}}"placeholder="">
+                                                                <input type="text" name="lname" class="form-control empty" readonly="" id="lname" value="{{$user->lname}}"placeholder="">
                                                             </div>
                                                         </div>
                                                         <div class="form-group prousername pmd-textfield">
                                                             <label class="control-label col-sm-3"> First Name </label>
                                                             <div class="col-sm-9">
-                                                                <input type="text" name="fname" class="form-control empty" id="fname" value="{{$user->fname}}"placeholder="">
+                                                                <input type="text" name="fname" class="form-control empty"readonly="" id="fname" value="{{$user->fname}}"placeholder="">
                                                             </div>
                                                         </div>
                                                         <div class="form-group prousername pmd-textfield">
