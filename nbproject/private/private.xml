@@ -4,9 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/adedayo/Sites/boilerplate/routes/web.php</file>
+            <file>file:/Users/adedayo/Sites/boilerplate/app/Http/Controllers/Core/AuthUserController.php</file>
+            <file>file:/Users/adedayo/Sites/boilerplate/resources/views/core/users/profile.blade.php</file>
             <file>file:/Users/adedayo/Sites/boilerplate/app/Http/Controllers/Core/UsersController.php</file>
+            <file>file:/Users/adedayo/Sites/boilerplate/app/Http/Controllers/Auth/RegisterController.php</file>
             <file>file:/Users/adedayo/Sites/boilerplate/resources/views/core/users/index.blade.php</file>
-            <file>file:/Users/adedayo/Sites/boilerplate/resources/views/core/profile.blade.php</file>
+            <file>file:/Users/adedayo/Sites/boilerplate/resources/views/core/profile_setting.blade.php</file>
         </group>
     </open-files>
 </project-private>
