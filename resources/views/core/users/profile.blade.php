@@ -123,7 +123,7 @@
                     </div>
                 </div>
             </div>
-             
+
         </div>
         <div class="col-md-4">
             <div class="row">
@@ -151,7 +151,6 @@
                                 </tboday>
                             </table>
                         </div>
-                        
                     </div>
                 </div>
             </div>
@@ -182,7 +181,6 @@
                                 </tboday>
                             </table>
                         </div>
-                        
                     </div>
                 </div>
             </div>
