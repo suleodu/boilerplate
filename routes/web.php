@@ -18,8 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/users', 'Core\UsersController@users')->name('user-management');
+//User management route
+Route::match(['get', 'post'], '/users', 'Core\UsersController@users')->name('user-management');
+Route::get('/manage/profile/{id}', 'Core\UsersController@profile')->name('manage-profile');
+Route::post('/manage/user/create', 'Core\UsersController@create_user')->name('create-user');
+Route::post('/manage/user/update', 'Core\UsersController@update_user')->name('update-user');
 
 //Authenticated user 
 Route::get('/profile', 'Core\AuthUserController@index')->name('user-profile');

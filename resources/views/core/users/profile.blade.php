@@ -123,18 +123,7 @@
                     </div>
                 </div>
             </div>
-             <p>&nbsp;</p>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="pmd-card pmd-card-default pmd-z-depth">
-                        
-                        <div class="pmd-card-actions">
-                            <button type="button" class="btn pmd-btn-flat pmd-ripple-effect btn-primary">Primary</button>
-                            <button class="btn pmd-btn-flat pmd-ripple-effect btn-default" type="button">Action</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
         <div class="col-md-4">
             <div class="row">
@@ -150,41 +139,24 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Permissions</th>
-                                        <th>&nbsp</th>
                                     </tr>
                                 </thead>
                                 <tboday>
                                     @foreach($permissions as $key => $perm )
                                     <tr>  
                                         <th>{{++$key}}</th>
-                                        <td>{{$perm->display_name}}</td>
-                                        <td>
-                                            <span class="dropdown pmd-dropdown clearfix">
-                                                <button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary" type="button" id="dropdownMenuBottomRight" data-toggle="dropdown" aria-expanded="true"><i class="material-icons pmd-sm">more_vert</i></button>
-                                                <ul aria-labelledby="dropdownMenuDivider" role="menu" class="dropdown-menu dropdown-menu-right">
-                                                    <li role="presentation"><a href="javascript:void(0);" ng-click="setCurrent(perm)" tabindex="-1" role="menuitem">View details</a></li>
-                                                    <li class="divider" role="presentation"></li>
-                                                    <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">Separated link</a></li>
-                                                </ul>
-                                            </span>
-                                        </td>
+                                        <td title="{{$perm->description}}">{{$perm->display_name}}</td> 
                                     </tr>
                                     @endforeach
-                                    
-                                    
                                 </tboday>
                             </table>
-                        </div>
-                        <div class="pmd-card-actions">
-                            <button type="button" class="btn pmd-btn-flat pmd-ripple-effect btn-primary">Primary</button>
-                            <button class="btn pmd-btn-flat pmd-ripple-effect btn-default" type="button">Action</button>
                         </div>
                     </div>
                 </div>
             </div>
             <p>&nbsp;</p>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 small">
                     <div class="pmd-card pmd-card-default pmd-z-depth">
                         <div class="pmd-card-title">
                             <h2 class="pmd-card-title-text">Role</h2>
@@ -202,16 +174,12 @@
                                     @foreach($roles as $key => $role )
                                     <tr>  
                                         <th>{{++$key}}</th>
-                                        <td>{{$role->display_name}}</td>
+                                        <td title="{{$role->description}}">{{$role->display_name}}</td>
                                     </tr>
                                     @endforeach
                                     
                                 </tboday>
                             </table>
-                        </div>
-                        <div class="pmd-card-actions">
-                            <button type="button" class="btn pmd-btn-flat pmd-ripple-effect btn-primary">Primary</button>
-                            <button class="btn pmd-btn-flat pmd-ripple-effect btn-default" type="button">Action</button>
                         </div>
                     </div>
                 </div>
