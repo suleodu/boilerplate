@@ -22,6 +22,7 @@ class UsersController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        //$this->data['module_name'] = 'core';
     }
 
     /**
@@ -31,7 +32,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home', $this->data);
     }
     
     
@@ -64,9 +65,9 @@ class UsersController extends Controller
             $user->whereSex($request->filt_sex);
         }
         
-        $data['page_title'] = "User Management";
-        $data['users'] = $user->paginate(20);
-        return view('core.users.index', $data);
+        $this->data['page_title'] = "User Management";
+        $this->data['users'] = $user->paginate(20);
+        return view('core.users.index', $this->data);
     }
     
     
