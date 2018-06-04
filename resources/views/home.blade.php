@@ -13,7 +13,7 @@
                     <a href="{{route('user-management')}}"  class="btn btn-lg btn-primary arrow "> User Management </a>
 
                     <!--Success button with a ripple effect-->
-                    <button type="button" class="btn btn-lg btn-success"> ACL </button>
+                    <a href="{{route('acl-management')}}"  class="btn btn-lg btn-success"> ACL  </a>
 
                     <!--Information button with a ripple effect-->
                     <button type="button" class="btn btn-lg btn-info"> Info </button>  

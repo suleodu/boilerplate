@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateModuleTable extends Migration
+class CreateStatesAndLga extends Migration
 {
     /**
      * Run the migrations.
@@ -13,31 +13,25 @@ class CreateModuleTable extends Migration
      */
     public function up()
     {
-        Schema::create('modules', function (Blueprint $table) {
+        Schema::create('states', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('display_name');
-            $table->string('icon')->nullable();
-            $table->text('description')->nullable();
+            $table->string('state_name');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
         
         
-        Schema::create('module_links', function (Blueprint $table) {
+        Schema::create('lgas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('url');
-            $table->unsignedInteger('module_id');
-            $table->string('name');
+            $table->string('lga_name');
+            $table->unsignedInteger('state_id');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
             
             
-            $table->foreign('module_id')->references('id')->on('modules')
+            $table->foreign('state_id')->references('id')->on('states')
                 ->onUpdate('cascade')->onDelete('cascade');
         });
-        
-        
     }
 
     /**
@@ -47,7 +41,7 @@ class CreateModuleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('module');
-        Schema::dropIfExists('module_links');
+        Schema::dropIfExists('states');
+        Schema::dropIfExists('lgas');
     }
 }

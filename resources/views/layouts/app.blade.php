@@ -317,12 +317,12 @@
         <li class="dropdown pmd-dropdown"> 
             <a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">	
                 <i class="material-icons media-left pmd-sm">swap_calls</i> 
-                <span class="media-body">Core</span>
+                <span class="media-body">Main</span>
                 <div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
             </a> 
             <ul class="dropdown-menu">
                 <li><a class="pmd-ripple-effect" href="{{route('user-management')}}">Manage Users</a></li>
-                <li><a class="pmd-ripple-effect" href="{{route('user-management')}}">Permissions</a></li>
+                <li><a class="pmd-ripple-effect" href="{{route('acl-management')}}">Manage ACL</a></li>
             </ul>
         </li>
         @if(isset($module_name) && $module_name != "")
