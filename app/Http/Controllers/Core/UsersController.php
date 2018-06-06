@@ -22,7 +22,7 @@ class UsersController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        //$this->data['module_name'] = 'core';
+        //$this->data['module_name'] = 'main';
     }
 
     /**
@@ -32,6 +32,7 @@ class UsersController extends Controller
      */
     public function index()
     {
+        
         return view('home', $this->data);
     }
     
@@ -39,6 +40,7 @@ class UsersController extends Controller
     
     public function users(Request $request)
     {
+        //dd(url('api'));
         $user = User::query();
         
         if($request->has('filt_fname') && $request->filt_fname !="") {
@@ -193,7 +195,87 @@ class UsersController extends Controller
     }
 
     
-    private function update(array $data, $id) {
+    public function assign_direct_perm(Request $request)
+    {
+        
+        
+        if (Auth::user()->can('core.acl.assign_perm')) {
+
+            if ($request->method() == 'POST') {
+
+                $request->validate([
+                    'perm_id' => 'required',
+                    'selected_user' => 'required',
+                ]);
+                
+                $user = User::whereId($request->selected_user)->first();
+                $assigned = $user->attachPermissions($request->perm_id);
+                
+                $notification = array(
+                            'message' => 'Update successful',
+                            'alert-type' => 'success'
+                        );
+                return redirect()->route('user-management')->with($notification);
+                
+            }
+
+            $notification = array(
+                'message' => 'Invalid request type!',
+                'alert-type' => 'warning'
+            );
+            return redirect()->route('user-management')->with($notification);
+        }
+
+        $notification = array(
+            'message' => 'Sorry you do not have permission to perform this operation !',
+            'alert-type' => 'warning'
+        );
+        return redirect()->route('user-management')->with($notification);
+    }
+    
+    
+    public function assign_role(Request $request)
+    {
+        
+        
+        if (Auth::user()->can('core.acl.assign_role')) {
+
+            if ($request->method() == 'POST') {
+
+                $request->validate([
+                    'role_id' => 'required',
+                    'selected_user' => 'required',
+                ]);
+                //TODO: Get the user collection of the $user_id
+                //attach all the permission
+                $user = User::whereId($request->selected_user)->first();
+                $assigned = $user->attachRoles($request->role_id);
+                
+                $notification = array(
+                            'message' => 'Update successful',
+                            'alert-type' => 'success'
+                        );
+                return redirect()->route('user-management')->with($notification);
+                
+            }
+
+            $notification = array(
+                'message' => 'Invalid request type!',
+                'alert-type' => 'warning'
+            );
+            return redirect()->route('user-management')->with($notification);
+        }
+
+        $notification = array(
+            'message' => 'Sorry you do not have permission to perform this operation !',
+            'alert-type' => 'warning'
+        );
+        return redirect()->route('user-management')->with($notification);
+    }
+    
+    
+    private function update(array $data, $id) 
+    {
         if (User::whereId($id)->update($data)) {
             $notification = array(
                 'message' => 'Update successful',
@@ -209,4 +291,6 @@ class UsersController extends Controller
         return redirect()->route('user-management')->with($notification);
     }
 
+    
+    
 }
