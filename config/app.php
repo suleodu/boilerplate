@@ -151,7 +151,7 @@ return [
          * Package Service Providers...
          */
 
-        //\Tams\Core\TamsCoreServiceProvider::class,
+        Tams\Core\TamsCoreServiceProvider::class,
         /*
          * Application Service Providers...
          */

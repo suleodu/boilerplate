@@ -5,8 +5,8 @@ $namespace = 'Tams\Core\Http\Controllers';
 
 Route::group(['namespace' => $namespace, 'prefix' => 'tams','middleware' => ['web']], function(){
     
-    Route::get('/', 'CoreController@index')->name('tams');
+    Route::get('/', 'IndexController@index')->name('tams');
     
-    Route::get('/test', 'CoreController@test');
-    Route::get('/school', 'CoreController@school')->name('manage-school');
+    Route::get('/school', 'SchoolController@index')->name('tams-school');
+    Route::get('/school1', 'CoreController@school')->name('manage-school');
 });

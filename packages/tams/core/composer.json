@@ -3,7 +3,7 @@
     "description": "bio",
     "authors": [
         {
-            "name": "suleodu",
+            "name": "Adedayo Suleodu",
             "email": "suleodu.adedayo@gmail.com"
         }
     ],
@@ -23,6 +23,7 @@
     },
     "scripts": {
         "post-package-install": [
+            "@php artisan vendor:publish",
             "@php artisan migrate"
         ]
     }

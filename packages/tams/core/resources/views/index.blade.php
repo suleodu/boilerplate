@@ -1,81 +1,47 @@
 @extends('layouts.app')
 
 @section('app_content')
-<div class="card">
-    <div class="card-heading">
-        <h2>Core Dashboard</h2>
-        
-    </div>
-    <div class="card-body bg-light lt">
-        
-        <div class="row text-center">
-            <div class="col-sm-3">
-                <div class="panel bg-primary pos-rlt">
-                    <span class="arrow top b-primary"></span>
-                    <a href="{{route('manage-school')}}" class="panel-body">
-                        School
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="panel bg-info pos-rlt">
-                    <span class="arrow top b-info"></span>
-                    <div class="panel-body">
-                        Sub School
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="panel bg-success pos-rlt">
-                    <span class="arrow top b-success"></span>
-                    <div class="panel-body">
-                        College
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="panel bg-warning pos-rlt">
-                    <span class="arrow top b-warning"></span>
-                    <div class="panel-body">
-                        Department
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row text-center">
-            <div class="col-sm-3">
-                <div class="panel b-a bg-light pos-rlt">
-                    <span class="arrow top b-light"></span>
-                    <div class="panel-body">
-                        Programme
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="panel bg-dark pos-rlt">
-                    <span class="arrow top b-dark"></span>
-                    <div class="panel-body">
-                        Session
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="panel bg-accent pos-rlt">
-                    <span class="arrow top b-accent"></span>
-                    <div class="panel-body">
-                        Course
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</div>
+<section class="row component-section">
+    <div class="col-md-12">
+        <!-- Bootstrap button code and example --> 
+        <div class="component-box">
+            <!--Bootstrap button example -->
+            <div class="pmd-card pmd-z-depth card-custom-view">
+                <div class="pmd-card-body"> 
+                    
+                    <!--Primary button with a ripple effect-->
+                    <a href="{{route('tams-school')}}"  class="btn btn-lg btn-primary ">School Mgt.</a>
 
+                    <!--Success button with a ripple effect-->
+                    <a href="{{route('acl-management')}}"  class="btn btn-lg btn-success"> Sub-School Mgt.  </a>
 
+                   <!--Success button with a ripple effect-->
+                    <a href="{{route('acl-management')}}"  class="btn btn-lg btn-info">College Mgt. </a>
+                    
+                    <!--Success button with a ripple effect-->
+                    <a href="{{route('acl-management')}}"  class="btn btn-lg btn-warning"> Department Mgt.</a>
+                    
+                    <!--Success button with a ripple effect-->
+                    <a href="{{route('acl-management')}}"  class="btn btn-lg btn-success"> Programme Mgt.</a>
+                    
+                    <!--Success button with a ripple effect-->
+                    <a href="{{route('acl-management')}}"  class="btn btn-lg btn-primary"> Session Mgt.</a>
+                    
+                    <!--Success button with a ripple effect-->
+                    <a href="{{route('acl-management')}}"  class="btn btn-lg btn-success"> Course Pool.</a>
+                </div>
+            </div> <!--Bootstrap button example end-->
+        </div> <!-- Bootstrap button code and example end --> 
+    </div>
+</section>
 @endsection
-
 
 @push('style')
 
 @endpush
+
+@push('script')
+
+
+@endpush
+

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
     public function __construct() {
-        
+        $data['module_name'] = "tams_core";
     }
     
     
@@ -17,17 +17,5 @@ class IndexController extends Controller
     {
         $data['page_title'] = "TAMS CORE";
         return view('TamsCore::index', $data);
-    }
-    
-    
-    public function test(Request $request)
-    {
-        return view('TamsCore::test');
-    }
-    
-    
-    public function school(Request $request)
-    {
-        return view('TamsCore::school');
     }
 }

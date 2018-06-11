@@ -18,6 +18,7 @@ class CreateTamscoreTable extends Migration
         Schema::create('schools', function (Blueprint $table) {
             $table->increments('id');
             $table->string('sch_name');
+            $table->string('sch_logo')->nullable();
             $table->string('short_name');
             $table->string('address')->nullable();
             $table->string('url')->nullable();

@@ -26,7 +26,8 @@
             "database/factories"
         ],
         "psr-4": {
-            "App\\": "app/"   
+            "App\\": "app/",
+            "Tams\\Core\\" : "packages/tams/core"
         }
     },
     "autoload-dev": {
