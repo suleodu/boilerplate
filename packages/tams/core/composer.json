@@ -1,0 +1,30 @@
+{
+    "name": "tams/core",
+    "description": "bio",
+    "authors": [
+        {
+            "name": "Adedayo Suleodu",
+            "email": "suleodu.adedayo@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Tams\\Core\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tams\\Core\\TamsCoreServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "post-package-install": [
+            "@php artisan vendor:publish",
+            "@php artisan migrate"
+        ]
+    }
+}

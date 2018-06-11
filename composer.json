@@ -10,7 +10,8 @@
         "intervention/image": "^2.4",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0",
-        "santigarcor/laratrust": "5.0.*"
+        "santigarcor/laratrust": "5.0.*" 
+        
     },
     "require-dev": {
         "filp/whoops": "^2.0",
@@ -25,7 +26,8 @@
             "database/factories"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Tams\\Core\\" : "packages/tams/core"
         }
     },
     "autoload-dev": {
@@ -56,6 +58,6 @@
         "sort-packages": true,
         "optimize-autoloader": true
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    "minimum-stability" : "dev"
+    
 }
